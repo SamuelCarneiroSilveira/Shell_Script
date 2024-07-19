@@ -1,0 +1,71 @@
+# to do = put login and passwords in ambient variables
+# maybe directorys 
+
+------------------- CONFIG FILE ------------------------------
+
+All directorys and files should be redirected here
+to facilitate future changes
+
+There must be no spaces before it, and there must be an = sign
+key=value
+
+This files will be cSCtured by the shell command 
+getConfigData() {
+    # Search the provided configuration in the file
+    # Cut out the value based on '=' delimiter
+    # Remove any whitespace characters
+    grep "^$1=" "$config_txt" | cut -d'=' -f2 | tr -d '[:space:]'
+}
+and called by 
+getConfigData 'key'
+
+
+
+
+------------------- WIFI config ----------------------------
+
+celular-ssid=samuel
+celular-password=samuel
+
+-------------------------- Amazon S3 -----------------------------------
+
+bucket=s3://Samuel
+
+
+Link to verify if aws is up: 
+s3_region_link_to_ping=https://s3.us-east-1.amazonaws.com
+
+------------------------- Directorys -----------------------------------
+
+the directorys must be configured here
+ 
+files-recent=/Samuel/data_files/raw_data
+files-storage=/Samuel/data_files/storage
+
+- Aqui deve vir o diretorio de watch dog scripts
+    #wd_scripts /shell-manager/wd-cli-tool
+
+log=/log
+
+day_log_backup=/log/storageBackup
+
+shell-manager=/shell-manager
+
+crontab_folder=/log/crontab
+
+db_pc_log_folder=/db-manager/CpuLog
+
+log_toBucket_directory=/log/toBucket
+log_storage_backup_directory=/log/storageBackup
+
+crontab_temp=/log/crontab/temp
+
+------------------------- files with full path  -----------------------------------
+
+cron_temporary_cpu_log_file=/log/crontab/temp/temp_cpu.log
+cpu_log_file=/log/log_cpu.log
+    
+cron_temporary_service_log_file=/log/crontab/temp/temp_service.log
+service_log_file=/log/log_services.log
+
+system_wifi_driver_bash=/shell-manager/system-configurator/genmachine_wifi_driver.sh
